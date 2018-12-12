@@ -7,14 +7,17 @@
 </head>
 <body>
 
-<h1 id="header">asakdda<</h1>
+<h1 id="header">Form with validation</h1>
 
 <form name="myForm" action="success.html" method="post">
-    First name: <input type="text" name="fname"><br>
-    Second name: <input type="text" name="sname"><br>
-    Age: <input type="number" name="age"><br>
-    Cty: <input type="text" name="city"><br>
+
+    <label>First name:<input type="text" class="required"><br></label>
+    <label>Second name: <input type="text" class="required"><br></label>
+    <label>Age: <input type="number" class="required"><br></label>
+    <label>Cty: <input type="text" class="required"><br></label>
+
     <input type="submit" value="Submit">
+
 </form>
 
 </body>

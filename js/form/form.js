@@ -1,19 +1,21 @@
 document.getElementsByTagName("form")[0].addEventListener("submit", function (e) {
+    var formValid = isFormValid(this);
+    if (!formValid) {
+        e.preventDefault();
+    }
+});
 
-    var form = this,
-        inputs = [
-            form["fname"],
-            form["sname"],
-            form["age"],
-            form["city"]];
+function isFormValid(form) {
+    var inputs = form.getElementsByClassName("required"),
+        isValid = true;
 
-
-    inputs.forEach(function (input) {
-        var isInvalid = false;
-        if (isInvalid === false &&input.value === "") {
-            e.preventDefault();
-            input.focus();
-            isInvalid = true;
+    Array.from(inputs).forEach(function (input) {
+        if (!input.value) {
+            isValid = false;
+            input.style.borderColor = "red";
+        } else {
+            input.style.borderColor = ""
         }
     });
-});
+    return isValid;
+}
